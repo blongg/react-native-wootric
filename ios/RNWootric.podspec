@@ -1,11 +1,8 @@
-require "json"
-
-package = JSON.parse(File.read(File.join(__dir__, "package.json")))
   
 Pod::Spec.new do |s|
   s.name         = "RNWootric"
-  s.version      = package["version"]
-  s.summary      = package["description"]
+  s.version      = "1.3.0"
+  s.description  = "Integration woottric"
   s.description  = <<-DESC
                   RNWootric
                    DESC
