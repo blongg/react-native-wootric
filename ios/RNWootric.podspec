@@ -1,7 +1,7 @@
   
 Pod::Spec.new do |s|
   s.name         = "RNWootric"
-  s.version      = "1.3.0"
+  s.version      = "1.3.2"
   s.description  = "Integration woottric"
   s.description  = <<-DESC
                   RNWootric
