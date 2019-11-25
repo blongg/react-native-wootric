@@ -3,9 +3,6 @@ Pod::Spec.new do |s|
   s.name         = "RNWootric"
   s.version      = "1.3.2"
   s.description  = "Integration woottric"
-  s.description  = <<-DESC
-                  RNWootric
-                   DESC
   s.homepage     = "https://github.com/blongg/react-native-wootric"
   s.summary      = "SDK Wootric in react native"
   s.license      = "MIT"
