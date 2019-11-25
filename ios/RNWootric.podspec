@@ -7,6 +7,7 @@ Pod::Spec.new do |s|
                   RNWootric
                    DESC
   s.homepage     = "https://github.com/blongg/react-native-wootric"
+  s.summary      = "SDK Wootric in react native"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
