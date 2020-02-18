@@ -1,5 +1,8 @@
 package com.reactlibrary;
 
+import android.app.Activity;
+
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -14,6 +17,8 @@ public class RNWootricModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
   private Wootric wootric;
+  private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
+  private static final String E_WOOTRIC_INIT_ERROR = "E_WOOTRIC_INIT_ERROR";
 
   public RNWootricModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -53,8 +58,22 @@ public class RNWootricModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void configureWithClientID(String clientId, String accountToken) {
-    wootric = Wootric.init(getCurrentActivity(), clientId, accountToken);
+  public void configureWithClientID(String clientId, String accountToken, Promise promise) {
+    try {
+      Activity currentActivity = getCurrentActivity();
+
+      // Check if activity is null
+      if (currentActivity == null) {
+        promise.reject(E_ACTIVITY_DOES_NOT_EXIST, "Activity doesn't exist");
+        return;
+      }
+
+      wootric = Wootric.init(currentActivity, clientId, accountToken);
+
+      promise.resolve("");
+    } catch (Exception e) {
+      promise.reject(E_WOOTRIC_INIT_ERROR, e);
+    }
   }
 
   @ReactMethod
