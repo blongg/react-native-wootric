@@ -70,7 +70,7 @@ public class RNWootricModule extends ReactContextBaseJavaModule {
 
       wootric = Wootric.init(currentActivity, clientId, accountToken);
 
-      promise.resolve();
+      promise.resolve("");
     } catch (Exception e) {
       promise.reject(E_WOOTRIC_INIT_ERROR, e);
     }
